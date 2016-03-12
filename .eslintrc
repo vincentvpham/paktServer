@@ -1,1 +1,11 @@
-"extends": "airbnb/legacy"
+{
+  "extends": "airbnb/legacy",
+  "globals": {
+    "describe": true,
+    "before": true,
+    "it": true
+  },
+  "rules": {
+    "func-names": 0
+  }
+}
