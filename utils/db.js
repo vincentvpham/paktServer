@@ -18,9 +18,9 @@ if (!global.hasOwnProperty('db')) {
   */
 
   // paktId (primary key) of Pakt will be added to Picture as a foreign key
-  global.db.Picture.belongsTo(global.db.Pakt);
+  // global.db.Picture.belongsTo(global.db.Pakt);
 
   // userId (primary key) of User will be added to Picture as a foreign key
-  global.db.Picture.belongsTo(global.db.User);
+  // global.db.Picture.belongsTo(global.db.User);
 }
 module.exports = global.db;
