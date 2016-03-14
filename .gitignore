@@ -1,2 +1,4 @@
 utils/db.js
 node_modules/
+env.js
+utils/*.sql

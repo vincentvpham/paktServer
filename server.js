@@ -1,15 +1,15 @@
 var express = require('express');
 var app = express();
-
-var port = process.env.PORT || 3000;
+var db = require('./utils/db.js');
+var http = require('http');
 
 require('./utils/middleware.js')(app);
 require('./utils/routes.js')(app);
 
-if (!module.parent) {
-  app.listen(port);
-}
+app.set('port', process.env.PORT || 3000);
 
-console.log('Hello from the other side (Port ' + port + ')');
-
-module.exports = app;
+db.sequelize.sync().then(function () {
+  http.createServer(app).listen(app.get('port'), function () {
+    console.log('Hello from the other side (Port ' + app.get('port') + ')');
+  });
+});
