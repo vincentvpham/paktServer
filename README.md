@@ -5,14 +5,12 @@ Building some cool stuff (NBAS)
 ## Table of Contents
 
 1. [Team](#team)
-2. [Usage](#Usage)
-3. [Requirements](#requirements)
-4. [Development](#development)
+2. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
     2. [File Hierarchy](#hierarchy)
-5. [Contributing](#contributing)
-6. [Documentation](#Documentation)
-7. [Tests](#Tests)
+3. [Contributing](#contributing)
+4. [Documentation](#Documentation)
+5. [Tests](#Tests)
 
 ## Team
 
@@ -20,25 +18,13 @@ Building some cool stuff (NBAS)
   - __Scrum Master__: Vincent Pham
   - __Development Team Members__: Deniz Mekik, Robert Boggs, Taylor Chamberlain, Vincent Pham
 
-## Usage
-
-> Some_usage_instructions
-
-## Requirements
-
-  - Some_requirement
-  - Some_requirement
-  - Some_requirement
-
 ## Development
 
 ### Installing Dependencies
 
 From within the root directory:
 ```sh
-sudo npm install -g bower
 npm install
-bower install
 ```
 
 ### File Hierarchy
@@ -46,11 +32,39 @@ bower install
 ```js
 ROOT
  |__SERVER__
- |
- |
- |
- |__CLIENT__
-
+    |- server.js
+    |
+    |__CONTROLLERS__
+    |   |- paktController.js
+    |   |- pictureController.js
+    |   |- userController.js
+    |
+    |__MODELS__
+    |   |- paktModel.js
+    |   |- paktUserModel.js
+    |   |- pictureModel.js
+    |   |- userModel.js
+    |   |- userUserModel.js
+    |
+    |__QUERIES__
+    |   |- paktQueries.js
+    |   |- paktUserQueries.js
+    |   |- pictureQueries.js
+    |   |- userQueries.js
+    |   |- userUserQueries.js
+    |
+    |__SPEC__
+    |   |- paktControllerSpec.js
+    |   |- pictureControllerSpec.js
+    |   |- userControllerSpec.js
+    |
+    |__UTILS__
+    |   |- db.js
+    |   |- env.example.js
+    |   |- helpers.js
+    |   |- middleware.js
+    |   |- routes.js
+    |   | ... etc ...
 ```
 
 ## Contributing
@@ -58,7 +72,10 @@ ROOT
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ##Documentation
-[Google Doc]
+[Google Doc](https://docs.google.com/document/d/1dVcplVjLmCKfeFGQ8nND-BS1UNxMItkWBqRBZwvbvWs/edit?usp=sharing)
 
 ##Tests
-  > Some_testing_instructions
+From within the root directory:
+```sh
+mocha spec
+```

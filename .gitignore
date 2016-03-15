@@ -1,3 +1,4 @@
 node_modules/
 env.js
 utils/*.sql
+npm-debug.log
