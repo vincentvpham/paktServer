@@ -1,4 +1,4 @@
-var UserPakts = require('../utils/db.js').User_Pakt;
+var UserPakts = require('../utils/db.js').Pakt_User;
 var User = require('../utils/db.js').User;
 var Pakt = require('../utils/db.js').Pakt;
 var Picture = require('../utils/db.js').Picture;
