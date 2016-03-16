@@ -23,7 +23,7 @@ if (!global.hasOwnProperty('db')) {
     as: 'friends',
     through: 'User_User' });
   global.db.User.belongsToMany(global.db.Pakt, {
-    through: 'User_Pakts',
+    through: 'User_Pakt',
     foreignKey: 'UserId' });
   global.db.Pakt.belongsToMany(global.db.User, {
     through: 'User_Pakt',
