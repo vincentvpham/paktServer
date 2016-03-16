@@ -6,6 +6,7 @@ var routes = function (app) {
   app.post('/api/users/login');
   app.get('/api/users/friends/:userId');
   app.get('/api/pacts/:userId', paktController.getAllPakts);
+  app.post('/api/pact', paktController.postPakt);
   app.put('/api/pact/:userId/:pactId');
   app.put('/api/pact/accept/:userId/:pactId');
   app.post('/api/pact/picture/:userId/:pactId');

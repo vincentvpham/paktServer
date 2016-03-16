@@ -47,22 +47,17 @@ module.exports = {
 
   // paktAndFriendsIds is an array of objects
   // containing paktId and userIds to be added
-  addFriendsToPakt: function (paktAndFriendsIds) {
-    PaktUser.bulkCreate(
-      paktAndFriendsIds
-    ).then(function () {
+  addFriendsToPakt: function (pairs, callback) {
+    PaktUser.bulkCreate(pairs)
+    .then(function () {
       PaktUser.findAll({
         where: {
-          PaktId: paktAndFriendsIds[0].PaktId
+          PaktId: pairs[0].PaktId
         },
         raw: true
       }).then(function (userPakts) {
-        console.log(userPakts);
-      }, function () {
-        console.log('error getting all users from a pakt');
+        callback(userPakts);
       });
-    }, function () {
-      console.log('error adding friends to pakt');
     });
   }
 };
