@@ -19,5 +19,11 @@ module.exports = {
     .then(function (pakts) {
       callback(pakts);
     });
+  },
+  createPakt: function (pakt, callback) {
+    Pakt.create(pakt)
+    .then(function (newPakt) {
+      callback(newPakt);
+    });
   }
 };
