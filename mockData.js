@@ -97,6 +97,10 @@ var userPakt = [
   {
     PaktId: 1,
     UserId: 2
+  },
+  {
+    PaktId: 2,
+    UserId: 1
   }
 ];
 

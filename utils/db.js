@@ -23,12 +23,17 @@ if (!global.hasOwnProperty('db')) {
     as: 'friends',
     through: 'User_User' });
   global.db.User.belongsToMany(global.db.Pakt, {
-    through: 'User_Pakt',
+    through: 'User_Pakts',
     foreignKey: 'UserId' });
   global.db.Pakt.belongsToMany(global.db.User, {
     through: 'User_Pakt',
     foreignKey: 'PaktId' });
-  global.db.Picture.belongsTo(global.db.Pakt);
+  global.db.Pakt.hasMany(global.db.Picture, {
+    foreignKey: 'PaktId'
+  });
   global.db.Picture.belongsTo(global.db.User);
+  global.db.Pakt.hasMany(global.db.User_Pakt);
+
+  // global.db.Picture.belongsToMany(global.db.Pakt);
 }
 module.exports = global.db;
