@@ -32,7 +32,7 @@ if (!global.hasOwnProperty('db')) {
     foreignKey: 'PaktId'
   });
   global.db.Picture.belongsTo(global.db.User);
-  global.db.Pakt.hasMany(global.db.User_Pakt);
+  global.db.Pakt.hasMany(global.db.Pakt_User);
 
   // global.db.Picture.belongsToMany(global.db.Pakt);
 }
