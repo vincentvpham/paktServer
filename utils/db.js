@@ -10,7 +10,7 @@ if (!global.hasOwnProperty('db')) {
     sequelize: sequelize,
     Picture: sequelize.import(__dirname + '/../models/pictureModel.js'),
     Pakt: sequelize.import(__dirname + '/../models/paktModel.js'),
-    User_Pakt: sequelize.import(__dirname + '/../models/paktUserModel.js'),
+    Pakt_User: sequelize.import(__dirname + '/../models/paktUserModel.js'),
     User: sequelize.import(__dirname + '/../models/userModel.js'),
     User_User: sequelize.import(__dirname + '/../models/userUserModel.js')
   };
@@ -23,10 +23,10 @@ if (!global.hasOwnProperty('db')) {
     as: 'friends',
     through: 'User_User' });
   global.db.User.belongsToMany(global.db.Pakt, {
-    through: 'User_Pakt',
+    through: 'Pakt_User',
     foreignKey: 'UserId' });
   global.db.Pakt.belongsToMany(global.db.User, {
-    through: 'User_Pakt',
+    through: 'Pakt_User',
     foreignKey: 'PaktId' });
   global.db.Pakt.hasMany(global.db.Picture, {
     foreignKey: 'PaktId'

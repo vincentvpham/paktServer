@@ -1,7 +1,7 @@
 var USER = require('./utils/db.js').User;
 var PAKT = require('./utils/db.js').Pakt;
 var PICTURE = require('./utils/db.js').Picture;
-var USER_PAKT = require('./utils/db.js').User_Pakt;
+var PAKT_USER = require('./utils/db.js').Pakt_User;
 var USER_USER = require('./utils/db.js').User_User;
 
 var user = [
@@ -119,7 +119,7 @@ USER.bulkCreate(user)
   PICTURE.bulkCreate(picture);
 })
 .then(function () {
-  USER_PAKT.bulkCreate(userPakt);
+  PAKT_USER.bulkCreate(userPakt);
 })
 .then(function () {
   USER_USER.bulkCreate(userUser);
