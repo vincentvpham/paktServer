@@ -1,5 +1,5 @@
 var paktController = require('../controllers/paktController');
-// var pictureController = require('../controllers/pictureController');
+var pictureController = require('../controllers/pictureController');
 var userController = require('../controllers/userController');
 var paktUserController = require('../controllers/paktUserController');
 
@@ -10,7 +10,7 @@ var routes = function (app) {
   app.post('/api/pact', paktController.postPakt);
   app.put('/api/pact/delete/:userId/:paktId', paktUserController.deletePaktUser);
   app.put('/api/pact/accept/:userId/:paktId', paktUserController.acceptPaktUser);
-  app.post('/api/pact/picture/:userId/:paktId');
+  app.post('/api/pact/picture/:userId/:paktId', pictureController.savePicture);
 };
 
 module.exports = routes;
