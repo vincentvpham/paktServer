@@ -33,6 +33,7 @@ if (!global.hasOwnProperty('db')) {
   });
   global.db.Picture.belongsTo(global.db.User);
   global.db.Pakt.hasMany(global.db.Pakt_User);
+  global.db.User.hasMany(global.db.User_User);
 
   // global.db.Picture.belongsToMany(global.db.Pakt);
 }
