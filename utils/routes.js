@@ -8,9 +8,9 @@ var routes = function (app) {
   app.get('/api/users/friends/:userId', userController.getUserFriends);
   app.get('/api/pacts/:userId', paktController.getAllPakts);
   app.post('/api/pact', paktController.postPakt);
-  app.put('/api/pact/:userId/:paktId', paktUserController.putPaktUser);
-  app.put('/api/pact/accept/:userId/:pactId');
-  app.post('/api/pact/picture/:userId/:pactId');
+  app.put('/api/pact/delete/:userId/:paktId', paktUserController.deletePaktUser);
+  app.put('/api/pact/accept/:userId/:paktId', paktUserController.acceptPaktUser);
+  app.post('/api/pact/picture/:userId/:paktId');
 };
 
 module.exports = routes;
