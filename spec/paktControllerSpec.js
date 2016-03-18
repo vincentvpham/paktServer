@@ -1,16 +1,18 @@
-var app = require('../server');
-var request = require('supertest');
-
-var paktModel = require('../models/paktModel');
+// var app = require('../server');
+// var request = require('supertest');
+// var Pakt = require('../utils/db.js').Pakt;
+var sequelize = require('../utils/db.js').sequelize;
+var mockData = require('../mockData.js');
 
 describe('Pakt Integration Tests', function () {
   before(function (done) {
     // Drops table and re-creates it
-    paktModel.sync({ force: true })
-    .success(function () {
+    sequelize.sync({ force: true })
+    .then(function () {
+      mockData.insertTestData();
       done(null);
     })
-    .error(function (error) {
+    .catch(function (error) {
       done(error);
     });
   });
@@ -18,12 +20,7 @@ describe('Pakt Integration Tests', function () {
   describe('Pakt', function () {
     // Placeholder Test
     it('test description', function (done) {
-      request(app)
-      .get('/api/')
-      .expect(200)
-      .end(function () {
-        done();
-      });
+      done();
     });
   });
 });

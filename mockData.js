@@ -5,15 +5,17 @@ var PAKT_USER = require('./utils/db.js').Pakt_User;
 var USER_USER = require('./utils/db.js').User_User;
 
 var user = [
-  { fbId: 10,
+  { id: 1, // automatically created by sequelize;
+    fbId: 10,
     name: 'Diamond',
     email: 'DW@DW.com',
     picture: '/samplePath/' },
-  { fbId: 5,
+  { id: 2,
+    fbId: 5,
     name: 'Alex',
     email: 'AS@AS.com',
     picture: '/samplePath3/' },
-  {
+  { id: 3,
     fbId: 11,
     name: 'Deniz',
     email: 'deniz@AS.com',
@@ -115,16 +117,22 @@ var userUser = [
   }
 ];
 
-USER.bulkCreate(user)
-.then(function () {
-  PAKT.bulkCreate(pakt);
-})
-.then(function () {
-  PICTURE.bulkCreate(picture);
-})
-.then(function () {
-  PAKT_USER.bulkCreate(userPakt);
-})
-.then(function () {
-  USER_USER.bulkCreate(userUser);
-});
+// for loading mock data from spec/test
+module.exports.insertTestData = function () {
+  USER.bulkCreate(user)
+  .then(function () {
+    PAKT.bulkCreate(pakt);
+  })
+  .then(function () {
+    PICTURE.bulkCreate(picture);
+  })
+  .then(function () {
+    PAKT_USER.bulkCreate(userPakt);
+  })
+  .then(function () {
+    USER_USER.bulkCreate(userUser);
+  });
+};
+
+// for loading mock data from console
+module.exports.insertTestData();
