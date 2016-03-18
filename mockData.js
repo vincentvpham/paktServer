@@ -108,6 +108,10 @@ var userUser = [
   {
     UserId: 1,
     friendId: 2
+  },
+  {
+    UserId: 1,
+    friendId: 3
   }
 ];
 

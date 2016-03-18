@@ -25,5 +25,20 @@ module.exports = {
     .then(function (newPakt) {
       callback(newPakt);
     });
+  },
+  updatePakt: function (paktId, updateObj, callback) {
+    Pakt.findOne({
+      where: { id: paktId }
+    }).then(function (pakt) {
+      pakt.updateAttributes(
+        updateObj
+      ).then(function (updated) {
+        callback(updated);
+      }, function (error) {
+        console.error('error updating UserPakt: ', error);
+      });
+    }, function (error) {
+      console.error('error getting UserPakt: ', error);
+    });
   }
 };

@@ -2,7 +2,7 @@ var PaktUser = require('../utils/db.js').Pakt_User;
 
 module.exports = {
 
-  getUserPakt: function (userId, paktId, callback) {
+  getPaktUser: function (userId, paktId, callback) {
     PaktUser.findOne({
       where: { UserId: userId, PaktId: paktId }
     }).then(function (userPakt) {
@@ -13,7 +13,7 @@ module.exports = {
   },
 
   // updates a property on Pakt_User based on updateValue object
-  updateUserPakt: function (userId, paktId, updateObj, callback) {
+  updatePaktUser: function (userId, paktId, updateObj, callback) {
     PaktUser.findOne({
       where: { UserId: userId, PaktId: paktId }
     }).then(function (userPakt) {
