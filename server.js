@@ -13,3 +13,4 @@ db.sequelize.sync().then(function () {
     console.log('Hello from the other side (Port ' + app.get('port') + ')');
   });
 });
+module.exports = app;

@@ -70,8 +70,8 @@ describe('Pakt Integration Tests: ', function () {
         data: {
           pakt: {
             id: 4,
-            name: 'fourth new pakt',
-            description: 'dance 1 time a week',
+            name: 'make dem gains',
+            description: 'eat alot 7 times a week',
             isMonetary: false,
             consequenceText: 'buy me a fancy dinner',
             consequenceValue: null,
@@ -83,7 +83,7 @@ describe('Pakt Integration Tests: ', function () {
             settled: false,
             open: true
           },
-          // array of friends to add to pakt
+          // array of users (including creating user) to add to pakt
           users: [1, 2]
         }
       };
@@ -97,14 +97,14 @@ describe('Pakt Integration Tests: ', function () {
           done(err);
         } else {
           assert.equal(res.body.id, 4);
-          assert.equal(res.body.name, 'fourth new pakt');
-          assert.equal(res.body.description, 'dance 1 time a week');
+          assert.equal(res.body.name, 'make dem gains');
+          assert.equal(res.body.description, 'eat alot 7 times a week');
           assert.equal(res.body.frequency, 1);
           // find all associations with new paktId
           PaktUser.findAll({ where: { PaktId: res.body.id } })
           .then(function (paktsUsers) {
             // this should be 3 because creating user should be added too
-            assert.equal(paktsUsers.length, 3);
+            assert.equal(paktsUsers.length, 2);
             done();
           });
         }

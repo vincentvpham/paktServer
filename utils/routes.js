@@ -6,11 +6,11 @@ var paktUserController = require('../controllers/paktUserController');
 var routes = function (app) {
   app.post('/api/users/login');
   app.get('/api/users/friends/:userId', userController.getUserFriends);
-  app.get('/api/pacts/:userId', paktController.getAllPakts);
-  app.post('/api/pact', paktController.postPakt);
-  app.put('/api/pact/delete/:userId/:paktId', paktUserController.deletePaktUser);
-  app.put('/api/pact/accept/:userId/:paktId', paktUserController.acceptPaktUser);
-  app.post('/api/pact/picture/:userId/:paktId', pictureController.savePicture);
+  app.get('/api/pakts/:userId', paktController.getAllPakts);
+  app.post('/api/pakt', paktController.postPakt);
+  app.put('/api/pakt/delete/:userId/:paktId', paktUserController.deletePaktUser);
+  app.put('/api/pakt/accept/:userId/:paktId', paktUserController.acceptPaktUser);
+  app.post('/api/pakt/picture/:userId/:paktId', pictureController.savePicture);
 };
 
 module.exports = routes;

@@ -14,12 +14,13 @@ module.exports = {
     var i;
     PaktQuery.createPakt(data.pakt, function (newPakt) {
       var paktId = newPakt.id;
+      // this should include the creator of the pakt
       var users = data.users;
       for (i = 0; i < users.length; i++) {
         pairs.push({ PaktId: paktId, UserId: users[i] });
       }
-      PaktUserQuery.addFriendsToPakt(pairs, function (userPakts) {
-        res.send(userPakts);
+      PaktUserQuery.addFriendsToPakt(pairs, function () {
+        res.send(newPakt);
       });
     });
   }

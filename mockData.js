@@ -9,23 +9,23 @@ var user = [
     fbId: 10,
     name: 'Diamond',
     email: 'DW@DW.com',
-    picture: '/samplePath/' },
+    picture: '/fb/samplePath1/' },
   { id: 2,
     fbId: 5,
     name: 'Alex',
     email: 'AS@AS.com',
-    picture: '/samplePath3/' },
+    picture: '/fb/samplePath2/' },
   { id: 3,
     fbId: 11,
     name: 'Deniz',
     email: 'deniz@AS.com',
-    picture: '/samplePath2/' }
+    picture: '/fb/samplePath3/' }
 ];
 
 var pakt = [
   {
     name: 'first pakt',
-    description: '3 times a week',
+    description: 'gym 3 times a week',
     isMonetary: false,
     consequenceText: 'buy me lunch',
     consequenceValue: null,
@@ -133,6 +133,3 @@ module.exports.insertTestData = function () {
     USER_USER.bulkCreate(userUser);
   });
 };
-
-// for loading mock data from console
-module.exports.insertTestData();
