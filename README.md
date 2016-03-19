@@ -33,9 +33,11 @@ npm install
 ROOT
  |__SERVER__
     |- server.js
+    |- mockData.js
     |
     |__CONTROLLERS__
     |   |- paktController.js
+    |   |- paktUserController.js
     |   |- pictureController.js
     |   |- userController.js
     |
@@ -59,12 +61,12 @@ ROOT
     |   |- userControllerSpec.js
     |
     |__UTILS__
-    |   |- db.js
-    |   |- env.example.js
-    |   |- helpers.js
-    |   |- middleware.js
-    |   |- routes.js
-    |   | ... etc ...
+        |- db.js
+        |- env.example.js
+        |- helpers.js
+        |- middleware.js
+        |- routes.js
+        | ... etc ...
 ```
 
 ## Contributing
