@@ -1,7 +1,7 @@
 {
   "name": "pakt-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server for Pakt client",
   "main": "server.js",
   "scripts": {
     "test": "mocha spec",
