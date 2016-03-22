@@ -9,6 +9,8 @@ module.exports = {
     PictureQuery.postPicture(userId, paktId, path)
     .then(function (picture) {
       res.send(picture);
+    }).catch(function (error) {
+      console.error(error);
     });
   }
 };

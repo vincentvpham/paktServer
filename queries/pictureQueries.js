@@ -7,8 +7,6 @@ module.exports = {
       UserId: userId,
       PaktId: paktId,
       path: userId + '/' + paktId + '/' + path
-    }).catch(function (error) {
-      console.error(error);
     });
   }
 };
