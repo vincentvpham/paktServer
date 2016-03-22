@@ -12,5 +12,15 @@ module.exports = {
     }).then(function (friends) {
       callback(friends[0].User_Users);
     });
+  },
+
+  findOrCreateUser: function (fbInfo) {
+    return User.findOrCreate({
+      where: {
+        fbId: fbInfo.id,
+        name: fbInfo.name,
+        email: fbInfo.email
+      }
+    });
   }
 };
