@@ -4,7 +4,7 @@ var userController = require('../controllers/userController');
 var paktUserController = require('../controllers/paktUserController');
 
 var routes = function (app) {
-  app.post('/api/users/login');
+  app.post('/api/users/login', userController.login);
   app.get('/api/users/friends/:userId', userController.getUserFriends);
   app.get('/api/pakts/:userId', paktController.getAllPakts);
   app.post('/api/pakt', paktController.postPakt);

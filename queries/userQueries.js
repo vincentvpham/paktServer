@@ -14,12 +14,12 @@ module.exports = {
     });
   },
 
-  findOrCreateUser: function (fbInfo) {
+  findOrCreateUser: function (profile) {
     return User.findOrCreate({
       where: {
-        fbId: fbInfo.id,
-        name: fbInfo.name,
-        email: fbInfo.email
+        fbId: profile.id,
+        name: profile.name,
+        email: profile.email
       }
     });
   }
