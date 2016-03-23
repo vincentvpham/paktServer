@@ -15,7 +15,7 @@ module.exports = {
     PaktQuery.createPakt(data.pakt, function (newPakt) {
       var paktId = newPakt.id;
       // this should include the creator of the pakt
-      var users = data.users;
+      var users = data.pakt.users;
       for (i = 0; i < users.length; i++) {
         pairs.push({ PaktId: paktId, UserId: users[i] });
       }
