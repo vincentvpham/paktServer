@@ -1,5 +1,6 @@
 var User = require('../utils/db.js').User;
 var UserUser = require('../utils/db.js').User_User;
+var _ = require('lodash');
 
 module.exports = {
 
@@ -9,10 +10,18 @@ module.exports = {
         model: UserUser,
         where: { Userid: userId }
       }]
-    }).then(function (friends) {
-      callback(friends[0].User_Users);
+    }).then(function (usersJoin) {
+      var friendIDs = _.map(usersJoin[0].User_Users, function (joinObj) {
+        return joinObj.friendId;
+      });
+      User.findAll({
+        where: { id: { $in: friendIDs } }
+      }).then(function (friends) {
+        callback(friends);
+      });
     });
   },
+
   addFriends: function (profile, user) {
     var friends = profile.friends.data.map(function (friend) {
       return friend.id;
