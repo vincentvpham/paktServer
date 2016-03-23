@@ -6,8 +6,12 @@ module.exports = {
     var profile = req.body;
     UserQuery.findOrCreateUser(profile)
     .then(function (user) {
-      res.send(user);
-    }).catch(function (error) {
+      return UserQuery.addFriends(profile, user);
+    })
+    .then(function (logedinUser) {
+      res.send(logedinUser[0]);
+    })
+    .catch(function (error) {
       console.error(error);
     });
   },
