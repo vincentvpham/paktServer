@@ -59,5 +59,14 @@ module.exports = {
         callback(userPakts);
       });
     });
+  },
+
+  deletePaktUser: function (userId, paktId) {
+    PaktUser.destroy({
+      where: {
+        UserId: userId,
+        PaktId: paktId
+      }
+    });
   }
 };

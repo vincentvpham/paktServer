@@ -30,9 +30,19 @@ module.exports = {
   acceptPaktUser: function (req, res) {
     var userId = req.params.userId;
     var paktId = req.params.paktId;
-    var update = req.body.data;
-    PaktUserQuery.updatePaktUser(userId, paktId, update, function (updatedEntry) {
-      res.send(updatedEntry);
-    });
+    var accepted = req.body.accepted;
+    if (accepted) {
+      PaktUserQuery.updatePaktUser(userId, paktId, { accepted: accepted }, function (updatedEntry) {
+        res.send(updatedEntry);
+      });
+    } else if (!accepted) {
+      PaktUserQuery.deletePaktUser(userId, paktId)
+      .then(function (deletedEntry) {
+        res.send(deletedEntry);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    }
   }
 };
