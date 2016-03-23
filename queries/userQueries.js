@@ -14,7 +14,7 @@ module.exports = {
     });
   },
   addFriends: function (profile, user) {
-    var friends = profile.friends.map(function (friend) {
+    var friends = profile.friends.data.map(function (friend) {
       return friend.id;
     });
     return User.findAll({
