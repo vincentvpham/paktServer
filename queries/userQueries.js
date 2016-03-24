@@ -11,9 +11,12 @@ module.exports = {
         where: { Userid: userId }
       }]
     }).then(function (usersJoin) {
-      var friendIDs = _.map(usersJoin[0].User_Users, function (joinObj) {
-        return joinObj.friendId;
-      });
+      var friendIDs = [];
+      if (usersJoin[0]) { // if the user has friends, add them to the array
+        friendIDs = _.map(usersJoin[0].User_Users, function (joinObj) {
+          return joinObj.friendId;
+        });
+      }
       User.findAll({
         where: { id: { $in: friendIDs } }
       }).then(function (friends) {
